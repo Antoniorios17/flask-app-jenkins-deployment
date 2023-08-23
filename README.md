@@ -29,7 +29,6 @@ This stage executes the following steps:
 3.  Generates a detailed JUnit XML report.
 4.  Utilizes the `always` post condition to ensure collection of the JUnit report regardless of test outcomes.
 
-bashCopy code
 
 `source test3/bin/activate
 py.test --verbose --junit-xml test-reports/results.xml`
