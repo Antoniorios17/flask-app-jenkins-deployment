@@ -9,6 +9,7 @@ pipeline {
         stage ('Build') {
             steps {
                 sh '''#!/bin/bash
+                sudo apt install python3.10-venv -y
                 python3 -m venv test3
                 source test3/bin/activate
                 pip install pip --upgrade

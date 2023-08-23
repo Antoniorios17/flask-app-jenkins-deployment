@@ -1,26 +1,46 @@
-<p align="center">
-<img src="https://github.com/kura-labs-org/kuralabs_deployment_1/blob/main/Kuralogo.png">
-</p>
-<h1 align="center">C4_deployment-2<h1> 
+Stage 1: Build
+--------------
 
-Demonstrate your ability to run a Jenkins build and manually deploy to Elastic Beanstalk.
+This stage performs the following actions:
 
-- Create a separate GitHub repository for this application 
+1.  Installs the `python3.10-venv` package using `apt`.
+2.  Creates a Python virtual environment named `test3`.
+3.  Activates the virtual environment.
+4.  Upgrades `pip` to the latest version.
+5.  Installs project dependencies from the `requirements.txt` file.
+6.  Sets the `FLASK_APP` environment variable.
 
-- Download the files from this repository and upload them to your newly created repository 
+bashCopy code
 
-- Be sure to follow the deployment instructions from this Repository  
+`sudo apt install python3.10-venv -y
+python3 -m venv test3
+source test3/bin/activate
+pip install pip --upgrade
+pip install -r requirements.txt
+export FLASK_APP=application`
 
-- Document your progress in a .md file in your repository. Also, document any issues you may run into and what you did to fix them.
-  
-- Make sure your documentation includes these sections:
-  - Purpose
-  - Issues
-  - Steps
-  - System Diagram
-  - Optimization (How would make this deployment more efficient)
+Stage 2: Test
+-------------
 
-- Lastly, save your documentation and diagram into your repository. Submit your repository link to the LMS
+This stage executes the following steps:
 
-## Deployment instructions Link:
--  [Link to instructions: https://github.com/kura-labs-org/C4_deployment-2/blob/main/Deployment-instructions.md
+1.  Activates the virtual environment created in the previous stage.
+2.  Runs tests using `py.test`.
+3.  Generates a detailed JUnit XML report.
+4.  Utilizes the `always` post condition to ensure collection of the JUnit report regardless of test outcomes.
+
+bashCopy code
+
+`source test3/bin/activate
+py.test --verbose --junit-xml test-reports/results.xml`
+
+Stage 3: Packaging the Output Files
+-----------------------------------
+
+This stage waits for user input before proceeding. Once input is received, the pipeline takes the following actions:
+
+1.  Zips the specified directory.
+2.  Excludes certain files from the zip.
+3.  Creates a packaged output file.
+
+User input is required to proceed with this stage.
