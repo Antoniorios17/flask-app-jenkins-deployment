@@ -191,6 +191,14 @@ Once the credentials are complete Jenkins will start the pipeline
     * Solutions: 
       * Installing the plugin "Pipeline Utility Steps"
       * Important step! restart the controller after installing new plugins
+  * Build stage fails
+    * The build failed becuase it was missing python virtual environment
+      * Solutions:
+        * run the command on the terminal:
+          ```
+          sudo apt install python3.10-venv -y
+          ```
+        * This will install the virtual environment library to run the build stage
 
 * Important information
   * When using the jenkins installation script it will take a few minutes to run completely when added to userdata
