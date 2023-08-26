@@ -105,7 +105,10 @@ Once the credentials are complete Jenkins will start the pipeline
       * Create a virtual environment
     * Test
       * Run pytest to test functionality of the application
+    * Packaging the output files
+      * Take all the application files and zip it 
   * Successful execution of all stages can be seen in the Jenkins GUI
+    * 
   
 ![jenkins-stages](https://github.com/Antoniorios17/deployment_elastic_beanstalk/blob/main/images/Jenkins-stages.png)
 
