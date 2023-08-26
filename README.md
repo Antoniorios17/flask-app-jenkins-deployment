@@ -36,7 +36,9 @@ First we need to install the necessary plugins following these steps:
 * Select the following options:
   * OS: Ubuntu 22.04
   * Instance type : t2.micro
-  * Security groups: enable 8080 (Jenkins), 22(ssh)
+  * Security groups: enable ports
+    * 8080 (Jenkins)
+    * 22 (ssh)
   * Storage 8 Gib gp2
   * Advance details:
     * Use the automatic script installation for jenkins [here](https://github.com/Antoniorios17/flask-app-jenkins-deployment/blob/main/scripts/jenkins-installer.sh)
