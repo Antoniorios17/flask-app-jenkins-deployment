@@ -6,10 +6,11 @@ Build, test, archive and deploy a flask application on Jenkins and deploy using 
 ## Table of contents
 
 1. Pre-requisites
-2. Create a pipeline build on Jenkins
-3. Jenkins CI/CD Pipeline
-4. Deploy application to Elastic Beanstalk
-5. System Design
+2. Install jenkins
+3. Create a pipeline build on Jenkins
+4. Jenkins CI/CD Pipeline
+5. Deploy application to Elastic Beanstalk
+6. System Design
 
 ## Pre-requisites
 
@@ -25,6 +26,11 @@ First we need to install the necessary plugins following these steps:
     ```
     sudo systemctl restart jenkins 
     ```
+
+
+## Install Jenkins
+
+* 
 
 
 ## Create a pipeline build on Jenkins
@@ -106,7 +112,7 @@ Once the credentials are complete Jenkins will start the pipeline
     * Test
       * Run pytest to test functionality of the application
     * Packaging the output files
-      * Take all the application files and zip it 
+      * Take all the application files and zip it.
   * Successful execution of all stages can be seen in the Jenkins GUI
     * 
   
