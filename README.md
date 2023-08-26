@@ -9,8 +9,9 @@ Build, test, archive and deploy a flask application on Jenkins and deploy using 
 2. Install jenkins
 3. Create a pipeline build on Jenkins
 4. Jenkins CI/CD Pipeline
-5. Deploy application to Elastic Beanstalk
-6. System Design
+5. Extract build from EC2
+6. Deploy application to Elastic Beanstalk
+7. System Design
 
 ## Pre-requisites
 
@@ -122,10 +123,31 @@ Once the credentials are complete Jenkins will start the pipeline
     * Test
       * Run pytest to test functionality of the application
     * Packaging the output files
-      * Take all the application files and zip it.
+      * Manually authorize to take all the application files and zip it.
   * Successful execution of all stages can be seen in the Jenkins GUI
   
 ![jenkins-stages](https://github.com/Antoniorios17/flask-app-jenkins-deployment/blob/main/images/d2-jenkins-stages.png)
+
+## Extract build from EC2
+
+* Once the pipeline finishes running you have a build created in zip form
+  * The application files have been compressed into a build that can be used along elastic beanstalk
+  * Follow these steps to extract the file from the EC2 instance to your local computer
+    * Find the zip file on the workspace directory
+      ```
+      /var/lib/jenkins/workspace/{project-name}/build/{build-version}
+      ```
+    * Create an ssh key from your local computer using :
+      ```
+      ssh-keygen
+      ```
+    * On the EC2 instance lookg for the .ssh directory in the /home/user directory.
+    * Edit the file authorized_users to include the public key of the local computer using nano
+    * From your local computer open the terminal and execute:
+      ```
+      scp ubuntu@{EC2-public-ip-address}:/var/lib/jenkins/workspace/{project-name}/build/{build-version}/archive.zip .
+      ```
+      This command will retrieve the file over ssh in a secure way to your local computer
 
 ## Elastic Beanstalk Flask App Deployment
 
@@ -155,11 +177,11 @@ Once the credentials are complete Jenkins will start the pipeline
 
 13. Once environment health is "OK", note your Domain Name.
 
-![elastic-beanstalk](https://github.com/Antoniorios17/deployment_elastic_beanstalk/blob/main/images/elastic-beanstalk-ok.png)
+![elastic-beanstalk](https://github.com/Antoniorios17/flask-app-jenkins-deployment/blob/main/images/d2-eb-ok-health.png)
 
 14. The Flask app is now deployed on Elastic Beanstalk. Access it using the provided Domain Name.
 
-![url-shortenet-webpage](https://github.com/Antoniorios17/deployment_elastic_beanstalk/blob/main/images/url-shortener-webpage.png)
+![url-shortenet-webpage](https://github.com/Antoniorios17/flask-app-jenkins-deployment/blob/main/images/d2-app-website.png)
 
 
 ## Troubleshooting
@@ -175,7 +197,6 @@ Once the credentials are complete Jenkins will start the pipeline
 * Select environments for the "url-shortener" application
 * Upload and the new zip file and version
 * The application should deploy successfully
-
 
 ## System Design
 
