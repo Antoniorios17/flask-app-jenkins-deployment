@@ -22,7 +22,7 @@ First we need to install the necessary plugins following these steps:
   * From the available plugins look for "Pipeline Utility Steps"
   * Install the plugin
   * Restart the jenkins Controller
-    * Run: 
+    * Run the command: 
     ```
     sudo systemctl restart jenkins 
     ```
@@ -124,7 +124,6 @@ Once the credentials are complete Jenkins will start the pipeline
     * Packaging the output files
       * Take all the application files and zip it.
   * Successful execution of all stages can be seen in the Jenkins GUI
-    * 
   
 ![jenkins-stages](https://github.com/Antoniorios17/flask-app-jenkins-deployment/blob/main/images/d2-jenkins-stages.png)
 
