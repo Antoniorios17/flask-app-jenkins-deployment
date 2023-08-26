@@ -30,8 +30,16 @@ First we need to install the necessary plugins following these steps:
 
 ## Install Jenkins
 
-* 
-
+* Open the AWS website
+* Get to the AWS console
+* Type in the search bar EC2
+* Select the following options:
+  * OS: Ubuntu 22.04
+  * Instance type : t2.micro
+  * Security groups: enable 8080 (Jenkins), 22(ssh)
+  * Storage 8 Gib gp2
+  * Advance details
+    * Use the automatic script installation for jenkins
 
 ## Create a pipeline build on Jenkins
 
