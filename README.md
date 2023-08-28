@@ -24,7 +24,7 @@ Follow these steps:
   * Within System configuration look for "Plugins"
   * From the available plugins look for "Pipeline Utility Steps"
   * Install the plugin
-  * Restart the jenkins Controller
+  * Restart the jenkins Controller to apply the changes
     * Run the command: 
     ```
     sudo systemctl restart jenkins 
