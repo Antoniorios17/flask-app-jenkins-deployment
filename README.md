@@ -1,7 +1,7 @@
 # KuraLabs
 
 Deployment 2
-Build, test, archive and deploy a flask application on Jenkins and deploy using AWS Elastic Beanstalk.
+Build, test and archive a flask application on Jenkins and deploy using AWS Elastic Beanstalk.
 
 ## Table of contents
 
