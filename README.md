@@ -7,10 +7,10 @@ Build, test and archive a flask application on Jenkins and deploy using AWS Elas
 
 1. Pre-requisites
 2. Install jenkins
-3. Create a pipeline build on Jenkins
+3. Create A Pipeline Build On Jenkins
 4. Jenkins CI/CD Pipeline
-5. Extract build from EC2
-6. Deploy application to Elastic Beanstalk
+5. Extract Build From EC2
+6. Deploy Application to Elastic Beanstalk
 7. System Design
 
 ## Pre-requisites
