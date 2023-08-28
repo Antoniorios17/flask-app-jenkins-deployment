@@ -15,7 +15,9 @@ Build, test and archive a flask application on Jenkins and deploy using AWS Elas
 
 ## Pre-requisites
 
-First we need to install the necessary plugins following these steps:
+First we need to install the necessary plugins for the pipeline.
+
+Follow these steps:
 
 * Select Dashboard 
   * Select Manage Jenkins
